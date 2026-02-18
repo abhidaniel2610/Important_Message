@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Favorite Person ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    color: white;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    margin-top: 12vh;
+    position: relative;
+}
+
+h1 {
+    font-size: 8vw;
+}
+
+p {
+    font-size: 5vw;
+    line-height: 1.4;
+}
+
+button {
+    padding: 15px;
+    width: 80%;
+    max-width: 300px;
+    font-size: 5vw;
+    border: none;
+    border-radius: 30px;
+    background-color: white;
+    color: #ff4b6e;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.2s;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.hidden-message {
+    display: none;
+    margin-top: 20px;
+}
+
+.truth-section {
+    display: none;
+    margin-top: 20px;
+    position: relative;
+    height: 200px;
+}
+
+.heart {
+    font-size: 12vw;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Moving button */
+#trickButton {
+    position: relative;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Hey Beautiful 💕</h1>
+    <p>I made something special just for you...</p>
+
+    <button onclick="showMessage()">Click Me ❤️</button>
+
+    <div class="hidden-message" id="loveMessage">
+        <p>You make my world brighter every single day ✨</p>
+        <p>I’m so lucky to have you 💖</p>
+        <div class="heart">❤️</div>
+
+        <div class="truth-section" id="truthSection">
+            <p>I've to tell you something important.</p>
+            <p>Click only if you can accept the truth.</p>
+            <button id="trickButton" onclick="handleClick()">Click Me 😳</button>
+        </div>
+    </div>
+</div>
+
+<script>
+let moveCount = 0;
+const maxMoves = 3;
+
+function showMessage() {
+    document.getElementById("loveMessage").style.display = "block";
+    document.getElementById("truthSection").style.display = "block";
+}
+
+function handleClick() {
+    const button = document.getElementById("trickButton");
+
+    if (moveCount < maxMoves) {
+        moveCount++;
+
+        // Random movement within container
+        const x = Math.random() * 200 - 100; 
+        const y = Math.random() * 100 - 50;
+
+        button.style.transform = `translate(${x}px, ${y}px)`;
+    } else {
+        alert("Just kidding 😂");
+    }
+}
+</script>
+
+</body>
+</html>
